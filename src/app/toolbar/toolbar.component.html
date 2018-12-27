@@ -1,0 +1,24 @@
+<mat-toolbar color="primary">
+
+  <!-- タイトル -->
+  <span class="title">{{title}}</span>
+
+  <span class="spacer"></span>
+
+  <!-- メニューボタン群 -->
+  <ng-container [cdkPortalOutlet]="menuButtons" *ngIf="!!menuButtons"></ng-container>
+
+  <!-- ...メニュー -->
+  <ng-container *ngIf="!!moreMenuButtons" >
+
+    <button mat-icon-button [mat-menu-trigger-for]="menuMore">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+
+    <mat-menu #menuMore>
+      <ng-container [cdkPortalOutlet]="moreMenuButtons"></ng-container>
+    </mat-menu>
+
+  </ng-container>
+
+</mat-toolbar>
